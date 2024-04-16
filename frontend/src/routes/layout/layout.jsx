@@ -16,6 +16,7 @@ function Layout() {
     </div>
   );
 }
+
 function RequireAuth() {
   const { currentUser } = useContext(AuthContext);
 
@@ -33,3 +34,5 @@ function RequireAuth() {
     );
   }
 }
+
+export { Layout, RequireAuth };
