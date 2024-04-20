@@ -4,6 +4,7 @@ import "./homePage.scss";
 import { AuthContext } from "../../context/AuthContext";
 import Card from "../../components/card/Card";
 import { Await, useLoaderData } from "react-router-dom";
+import SmallCard from "../../components/smallCard/smallCard";
 
 function HomePage() {
   const { currentUser } = useContext(AuthContext);
@@ -52,6 +53,7 @@ function HomePage() {
         <hr/>
         </span>
         </div>
+        <div className="row">
         <Suspense fallback={<p>Loading...</p>}>
           <Await
             resolve={data.postResponse}
@@ -59,11 +61,13 @@ function HomePage() {
           >
             {(postResponse) =>
               postResponse.data.map((post) => (
-                <Card key={post.id} item={post} />
+               
+                  <SmallCard key={post.id} item={post} />
               ))
             }
           </Await>
         </Suspense>
+        </div>
       </div>
     </>
   );
