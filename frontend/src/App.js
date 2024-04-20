@@ -9,6 +9,7 @@ import Register from "./routes/register/register";
 import ProfileUpdatePage from "./routes/profileUpdatePage/profileUpdatePage";
 import NewPostPage from "./routes/newPostPage/newPostPage";
 import {
+  homePageLoader,
   listPageLoader,
   profilePageLoader,
   singlePageLoader,
@@ -23,6 +24,7 @@ function App() {
         {
           path: "/",
           element: <HomePage />,
+          loader:homePageLoader,
         },
         {
           path: "/list",

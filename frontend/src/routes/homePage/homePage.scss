@@ -81,3 +81,22 @@
     }
   }
 }
+
+.homepagecontent{
+  margin-top: 100px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap:50px;
+
+
+  h1{
+    font-size: 48px;
+  }
+
+  .card{
+    width: 100%;
+    max-width: 800px;
+  }
+}
