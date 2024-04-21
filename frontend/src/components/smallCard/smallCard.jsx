@@ -1,12 +1,16 @@
 import { Link } from 'react-router-dom';
 import './smallcard.scss';
 
-const smallCard = ({ item }) => {
+const smallCard = ({ item ,animation}) => {
     return (
-        <div className="smallcard">
+        <div className="smallcard" aos-data={animation}>
 
             <Link to={`/${item.id}`} className='imgContainer' >
                 <img src={item.images[0]} alt="" />
+                <div className="city">
+                    <img src="/pin.png" alt="" />
+                    <span> {item.address}</span>
+                </div>
             </Link>
             <div className="textContainer">
                 <h2 className='title'>

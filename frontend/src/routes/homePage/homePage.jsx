@@ -5,14 +5,18 @@ import { AuthContext } from "../../context/AuthContext";
 import Card from "../../components/card/Card";
 import { Await, useLoaderData } from "react-router-dom";
 import SmallCard from "../../components/smallCard/smallCard";
+import Footer from "../../components/Footer/Footer";
+import Banner from "../../components/Banner/Banner";
 
 function HomePage() {
   const { currentUser } = useContext(AuthContext);
   const data = useLoaderData();
   
+  console.log('data',data);
+
   return (
     <>
-      <div className="homePage">
+      <div className="homePage" data-aos="fade-up">
         <div className="textContainer">
           <div className="wrapper">
             <h1 className="title">
@@ -46,28 +50,10 @@ function HomePage() {
         </div>
       </div>
       <div className="homepagecontent">
-        <div className="title">
-        <span>
-        <hr/>
-        <h1>YourBroker Latest Boarding Places</h1>
-        <hr/>
-        </span>
-        </div>
-        <div className="row">
-        <Suspense fallback={<p>Loading...</p>}>
-          <Await
-            resolve={data.postResponse}
-            errorElement={<p>Error loading posts!</p>}
-          >
-            {(postResponse) =>
-              postResponse.data.map((post) => (
-               
-                  <SmallCard key={post.id} item={post} />
-              ))
-            }
-          </Await>
-        </Suspense>
-        </div>
+        <Banner title="YourBroker Latest Boarding Houses" fetchData={data} />
+        <Banner title="YourBroker Latest Rental Houses" fetchData={data} />
+        <Banner title="YourBroker Latest Selling Houses" fetchData={data} />
+        <Footer />
       </div>
     </>
   );
