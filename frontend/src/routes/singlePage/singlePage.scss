@@ -32,6 +32,7 @@
 
       .info {
         margin-top: 50px;
+        margin-bottom: 20px;
         .top {
           display: flex;
           justify-content: space-between;
@@ -62,7 +63,7 @@
             }
             .price {
               padding: 5px;
-              background-color: rgba(254, 205, 81, 0.438);
+              background-color: #f8c7c9;
               border-radius: 5px;
               width: max-content;
               font-size: 20px;
@@ -77,7 +78,7 @@
             gap: 20px;
             padding: 0px 50px;
             border-radius: 10px;
-            background-color: rgba(254, 205, 81, 0.209);
+            background-color: #f8c7c9;
             font-weight: 600;
 
             @include sm {
@@ -201,8 +202,9 @@
           align-items: center;
           gap: 5px;
           background-color: white;
-          border: 1px solid #fece51;
+          border: 1px solid #ff5a5f;
           border-radius: 5px;
+          margin-bottom: 10px;
           cursor: pointer;
 
           img {
