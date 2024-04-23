@@ -1,0 +1,158 @@
+@import "../../responsive.scss";
+
+footer{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: #fad578;
+    padding-top: 10px;
+    .top{
+        display: flex;
+        justify-content: space-between;
+        gap:20px;
+
+        @include md{
+            width: 100%;
+            gap:10px;
+            flex-wrap: wrap-reverse;
+            justify-content: space-evenly;
+            height: auto;
+        }
+
+        @include sm{
+            gap: 0px;
+        }
+
+        .description{
+            width: 50%;
+
+            @include md{
+                width: 100%;
+            }
+
+            .logo{
+                display: flex;
+                justify-items: center;
+                justify-content: flex-start;
+                width:max-content;
+                // border: 1px solid black;
+
+                @include md{
+                    width: 100%;
+                     justify-content: center;
+                }
+                img{
+                    height: 75px;
+                    width: 75px;
+                }
+
+                span{
+                    display: flex;
+                    align-items: center;
+                    font-size: 36px;
+                    font-weight: 600;
+
+                }
+            }
+
+            p{
+                // border: 1px solid black;
+                padding: 0px 10px;
+                text-align: center;
+                font-size: 16px;
+                line-height: 18px;
+                
+                @include md{
+                    padding-bottom: 10px;
+                }
+            }
+
+            
+        }
+
+        .col{
+            width: 25%;
+            // border: 1px solid black;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            align-items: center;
+
+            @include md{
+                width: 40%;
+            }
+
+            @include sm{
+                width: 100%;
+            }
+
+            h5{
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+
+            a{
+                margin: 5px 0px;
+                transition: all 0.2s ease-in;
+
+                &:hover{
+                    scale: (1.05);
+                    font-weight: 400px;
+                }
+            }
+        }
+
+        .contact-links{
+            width: 25%;
+            // border: 1px solid black;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            align-items: center;
+
+            @include md{
+                width: 40%;
+            }
+
+            @include sm{
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+
+            h5{
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+
+            p{
+                margin: 5px 0px;
+              
+            }
+        }
+    }
+
+    .bottom{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        // border:1px solid black;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        hr{
+            width: 75%;
+            align-content:center ;
+        }
+
+        p{
+            font-size: 14px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            opacity: 0.7;
+        }
+    }
+
+}
