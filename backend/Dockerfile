@@ -14,7 +14,7 @@ RUN npm install --ignore-scripts
 COPY . .
 
 # Expose the port that the Express server will run on
-EXPOSE 3000
+EXPOSE 8800
 
 # Specify the command to run your backend application
 CMD ["npm", "start"]
