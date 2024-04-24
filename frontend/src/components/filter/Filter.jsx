@@ -65,10 +65,10 @@ function Filter() {
             defaultValue={query.property}
           >
             <option value="">any</option>
-            <option value="apartment">Apartment</option>
-            <option value="house">House</option>
-            <option value="condo">Condo</option>
-            <option value="land">Land</option>
+                <option value="apartment">Boarding Building</option>
+                <option value="condo">Boarding Room</option>
+                <option value="house">Rental House</option>
+                <option value="land">Sellinh House</option>
           </select>
         </div>
         <div className="item">
