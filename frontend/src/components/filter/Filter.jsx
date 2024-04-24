@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./filter.scss";
 import { useSearchParams } from "react-router-dom";
+import Card from "../card/Card";
 
-function Filter() {
+function Filter({postData}) {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [filterData,setfilterData]=useState(postData);
   const [query, setQuery] = useState({
     type: searchParams.get("type") || "",
     city: searchParams.get("city") || "",
@@ -13,6 +15,17 @@ function Filter() {
     bedroom: searchParams.get("bedroom") || 1,
   });
 
+  const district = query.city;
+
+  const filteringData =(posts)=>{
+    if(Array.isArray(postData)){
+      setfilterData(postData.filter((data)=>{
+        return(
+          ((data.city.toLowerCase().includes(posts.city.toLowerCase())) || data.address.toLowerCase().includes(posts.city.toLowerCase() || data.title.toLowerCase().includes(posts.title.toLowerCase())))
+        )
+      }))
+    }
+  }
   const handleChange = (e) => {
     setQuery({
       ...query,
@@ -24,7 +37,16 @@ function Filter() {
     setSearchParams(query);
   };
 
+  useEffect(()=>{
+    setfilterData(postData);
+    filteringData(query);
+
+  },[postData,query])
+
+  console.log("postdata",postData);
+  console.log("filterdata",filterData);
   return (
+    <>
     <div className="filter">
       <h1>
         Search results for <b>{searchParams.get("city")}</b>
@@ -65,10 +87,10 @@ function Filter() {
             defaultValue={query.property}
           >
             <option value="">any</option>
-                <option value="apartment">Boarding Building</option>
-                <option value="condo">Boarding Room</option>
-                <option value="house">Rental House</option>
-                <option value="land">Sellinh House</option>
+            <option value="apartment">Boarding Building</option>
+            <option value="condo">Boarding Room</option>
+            <option value="house">Rental House</option>
+            <option value="land">Sellinh House</option>
           </select>
         </div>
         <div className="item">
@@ -109,6 +131,11 @@ function Filter() {
         </button>
       </div>
     </div>
+      {Array.isArray(filterData) ?  filterData.map(filter=>(
+        <Card key={filter.id} item={filter}/>
+      )):
+      <p>No Records Available</p>}
+    </>
   );
 }
 

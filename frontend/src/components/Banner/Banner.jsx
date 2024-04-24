@@ -31,7 +31,7 @@ const Banner1 = ({ title, fetchData }) => {
                         errorElement={<p>Error loading posts!</p>}
                     >
                         {(postResponse) =>
-                            postResponse.data.filter(post => post.property === "condo")
+                            postResponse.data.filter(post => post.property === "condo").slice(0,8)
                             .map((post) => (
                                 <SmallCard key={post.id} item={post} animation="flip-up" />
                             ))  
@@ -111,7 +111,7 @@ const Banner3 = ({ title, fetchData }) => {
                         errorElement={<p>Error loading posts!</p>}
                     >
                         {(postResponse) =>
-                            postResponse.data.filter(post => post.property === "land")
+                            postResponse.data.filter(post => post.property === "land").slice(0,8)
                             .map((post) => (
                                 <SmallCard key={post.id} item={post} animation="flip-up" />
                             ))  
