@@ -75,15 +75,15 @@
       flex-direction: column;
       gap: 20px;
 
-      .chatMessage{
+      .chatMessage {
         width: 50%;
 
-        &.own{
+        &.own {
           align-self: flex-end;
           text-align: right;
         }
 
-        span{
+        span {
           font-size: 12px;
           background-color: #f7c14b39;
           padding: 2px;
@@ -98,15 +98,15 @@
       align-items: center;
       justify-content: space-between;
 
-      textarea{
-        flex:3;
+      textarea {
+        flex: 3;
         height: 100%;
         border: none;
         padding: 20px;
       }
 
-      button{
-        flex:1;
+      button {
+        flex: 1;
         background-color: #f7c14b85;
         height: 100%;
         border: none;
