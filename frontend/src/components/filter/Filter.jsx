@@ -24,7 +24,8 @@ function Filter({postData}) {
       setfilterData(postData.filter((data)=>{
         return(
           ((data.city.toLowerCase().includes(posts.city.toLowerCase())) || data.address.toLowerCase().includes(posts.city.toLowerCase() || data.title.toLowerCase().includes(posts.title.toLowerCase()))) &&
-          (data.type.includes(posts.type)) && (data.property.includes(posts.property))
+          (data.type.includes(posts.type)) && (data.property.includes(posts.property)) && (data.price >= posts.minPrice) && (data.price <= posts.maxPrice) && (data.bedroom >= posts.bedroom)
+         
         )
       }))
     }
