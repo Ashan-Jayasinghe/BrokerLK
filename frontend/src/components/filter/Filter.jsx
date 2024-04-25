@@ -9,22 +9,25 @@ function Filter({postData}) {
   const [query, setQuery] = useState({
     type: searchParams.get("type") || "",
     city: searchParams.get("city") || "",
-    property: searchParams.get("property") || "",
-    minPrice: searchParams.get("minPrice") || 0,
-    maxPrice: searchParams.get("maxPrice") || 10000000,
-    bedroom: searchParams.get("bedroom") || 1,
+    property:searchParams.get("property") || "",
+    minPrice: parseInt(searchParams.get("minPrice") )|| 0,
+    maxPrice: parseInt(searchParams.get("maxPrice")) || 10000000,
+    bedroom: 0,
   });
 
   const minPrice = query.minPrice;
   console.log("minPrice",query.minPrice);
   const district = query.city;
+  const queryslide = query;
+  console.log(queryslide);
 
   const filteringData =(posts)=>{
     if(Array.isArray(postData)){
       setfilterData(postData.filter((data)=>{
         return(
           ((data.city.toLowerCase().includes(posts.city.toLowerCase())) || data.address.toLowerCase().includes(posts.city.toLowerCase() || data.title.toLowerCase().includes(posts.title.toLowerCase()))) &&
-          (data.type.includes(posts.type)) && (data.property.includes(posts.property)) && (data.price >= posts.minPrice) && (data.price <= posts.maxPrice) && (data.bedroom >= posts.bedroom)
+          (data.type.includes(posts.type)) && 
+          (data.property.includes(posts.property)) && (data.price >= posts.minPrice) && (data.price <= posts.maxPrice) && (data.bedroom >= posts.bedroom)
          
         )
       }))
@@ -122,7 +125,7 @@ function Filter({postData}) {
         <div className="item">
           <label htmlFor="bedroom">Bedroom</label>
           <input
-            type="text"
+            type="number"
             id="bedroom"
             name="bedroom"
             placeholder="any"
