@@ -22,8 +22,15 @@ function Navbar() {
           <span>BrokerLK</span>
         </a>
         <a href="/">Home</a>
+
         <a href="/list">Rental</a>
-        <a href="/">Contact</a>
+        
+        <a href="/">About</a>
+
+        <a href="/contact">Contact</a>
+
+       
+
       </div>
       <div className="right">
         {currentUser ? (

@@ -121,3 +121,13 @@ export const deletePost = async (req, res) => {
     res.status(500).json({ message: "Failed to delete post" });
   }
 };
+
+export const getFilterPosts =async (req,res)=>{
+    try{
+      const posts = await prisma.post.findMany();
+      res.status(200).json(posts);
+    }catch(err){
+      console.log(err);
+      res.status(500).json({message:"cannot fetch the data"});
+    }
+}
