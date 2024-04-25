@@ -15,13 +15,17 @@ function Filter({postData}) {
     bedroom: searchParams.get("bedroom") || 1,
   });
 
+  const minPrice = query.minPrice;
+  console.log("minPrice",query.minPrice);
   const district = query.city;
 
   const filteringData =(posts)=>{
     if(Array.isArray(postData)){
       setfilterData(postData.filter((data)=>{
         return(
-          ((data.city.toLowerCase().includes(posts.city.toLowerCase())) || data.address.toLowerCase().includes(posts.city.toLowerCase() || data.title.toLowerCase().includes(posts.title.toLowerCase())))
+          ((data.city.toLowerCase().includes(posts.city.toLowerCase())) || data.address.toLowerCase().includes(posts.city.toLowerCase() || data.title.toLowerCase().includes(posts.title.toLowerCase()))) &&
+          (data.type.includes(posts.type)) && (data.property.includes(posts.property)) && (data.price >= posts.minPrice) && (data.price <= posts.maxPrice) && (data.bedroom >= posts.bedroom)
+         
         )
       }))
     }
@@ -90,7 +94,7 @@ function Filter({postData}) {
             <option value="apartment">Boarding Building</option>
             <option value="condo">Boarding Room</option>
             <option value="house">Rental House</option>
-            <option value="land">Sellinh House</option>
+            <option value="land">Selling House</option>
           </select>
         </div>
         <div className="item">
