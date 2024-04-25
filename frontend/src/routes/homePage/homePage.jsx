@@ -6,7 +6,8 @@ import Card from "../../components/card/Card";
 import { Await, useLoaderData } from "react-router-dom";
 import SmallCard from "../../components/smallCard/smallCard";
 import Footer from "../../components/Footer/Footer";
-import Banner from "../../components/Banner/Banner";
+import {Banner1,Banner2,Banner3} from "../../components/Banner/Banner";
+
 
 function HomePage() {
   const { currentUser } = useContext(AuthContext);
@@ -50,9 +51,9 @@ function HomePage() {
         </div>
       </div>
       <div className="homepagecontent">
-        <Banner title="YourBroker Latest Boarding Houses" fetchData={data} />
-        <Banner title="YourBroker Latest Rental Houses" fetchData={data} />
-        <Banner title="YourBroker Latest Selling Houses" fetchData={data} />
+        <Banner1 title="YourBroker Latest Boarding Rooms" fetchData={data} />
+        <Banner2 title="YourBroker Latest Rental Houses" fetchData={data} />
+        <Banner3 title="YourBroker Latest Selling Houses" fetchData={data} />
         <Footer />
       </div>
     </>
